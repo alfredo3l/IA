@@ -17,10 +17,12 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         </div>
       }
     >
-      <Spline
-        scene={scene}
-        className={className}
-      />
+      <div className="relative w-full h-full [&_canvas+div]:!hidden [&_canvas~div]:!hidden [&_div:not(:has(canvas))>div]:!hidden">
+        <Spline
+          scene={scene}
+          className={className}
+        />
+      </div>
     </Suspense>
   )
 }
