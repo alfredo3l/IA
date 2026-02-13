@@ -1,9 +1,10 @@
 'use client'
 
-import { SplineScene } from "@/components/ui/splite";
+import { SplineScene } from "@/components/ui/splite"
 import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
- 
+import { SPLINE_SCENES } from "@/constants"
+
 export function SplineSceneBasic() {
   return (
     <Card className="w-full h-full bg-black/[0.96] relative overflow-hidden border-0">
@@ -13,7 +14,7 @@ export function SplineSceneBasic() {
       
       <div className="w-full h-full relative">
         <SplineScene 
-          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+          scene={SPLINE_SCENES.robot}
           className="w-full h-full"
         />
       </div>

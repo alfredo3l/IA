@@ -1,6 +1,8 @@
 'use client'
 
 import { Suspense, lazy } from 'react'
+import { Loader2 } from 'lucide-react'
+
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -12,17 +14,15 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
   return (
     <Suspense 
       fallback={
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="loader"></span>
+        <div className="w-full h-full flex items-center justify-center bg-black">
+          <Loader2 className="w-8 h-8 text-neutral-400 animate-spin" />
         </div>
       }
     >
-      <div className="relative w-full h-full [&_canvas+div]:!hidden [&_canvas~div]:!hidden [&_div:not(:has(canvas))>div]:!hidden">
-        <Spline
-          scene={scene}
-          className={className}
-        />
-      </div>
+      <Spline
+        scene={scene}
+        className={className}
+      />
     </Suspense>
   )
 }
